@@ -1,0 +1,196 @@
+.restaurant-menu {
+  min-height: 100vh;
+  padding-bottom: 100px;
+}
+
+/* Hero */
+.menu-hero {
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+.menu-hero__bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.menu-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10,10,26,0.4) 0%,
+    rgba(10,10,26,0.7) 60%,
+    rgba(10,10,26,0.95) 100%
+  );
+}
+.menu-hero__content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding-bottom: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.menu-hero__back {
+  align-self: flex-start;
+  padding: var(--space-2) var(--space-4);
+}
+.menu-hero__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.menu-hero__name {
+  font-size: var(--font-size-3xl);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.menu-hero__desc {
+  font-size: var(--font-size-base);
+  color: rgba(255,255,255,0.75);
+  max-width: 600px;
+}
+.menu-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+.menu-hero__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-sm);
+  color: rgba(255,255,255,0.8);
+}
+.menu-hero__meta-sep {
+  color: rgba(255,255,255,0.35);
+}
+
+/* Sticky category nav */
+.menu-cat-nav {
+  position: sticky;
+  top: var(--navbar-height);
+  z-index: var(--z-dropdown);
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  border-bottom: 1px solid var(--glass-border);
+}
+.menu-cat-nav__inner {
+  display: flex;
+  gap: var(--space-1);
+  overflow-x: auto;
+  padding: var(--space-2) 0;
+  scrollbar-width: none;
+}
+.menu-cat-nav__inner::-webkit-scrollbar { display: none; }
+
+.menu-cat-btn {
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  background: none;
+  border: 1px solid transparent;
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+.menu-cat-btn:hover {
+  color: var(--color-text-primary);
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+}
+.menu-cat-btn--active {
+  color: var(--color-accent-light);
+  background: rgba(124,58,237,0.12);
+  border-color: rgba(124,58,237,0.3);
+  font-weight: 600;
+}
+
+/* Menu content */
+.menu-content {
+  padding-top: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+
+.menu-section__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.menu-section__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+/* Not found */
+.menu-not-found {
+  padding: var(--space-20) 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+/* Floating cart bar */
+.menu-cart-bar {
+  position: fixed;
+  bottom: var(--space-5);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: var(--z-sticky);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  min-width: 320px;
+  max-width: calc(100vw - var(--space-8));
+  animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.menu-cart-bar__info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+}
+.menu-cart-bar__btn {
+  flex: 1;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+}
+.menu-cart-bar__btn span {
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .menu-hero { height: 280px; }
+  .menu-hero__name { font-size: var(--font-size-2xl); }
+  .menu-section__grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .menu-hero { height: 240px; }
+  .menu-hero__name { font-size: var(--font-size-xl); }
+}
